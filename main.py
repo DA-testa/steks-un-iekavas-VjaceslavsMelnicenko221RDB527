@@ -11,19 +11,19 @@ def are_matching(left, right):
 
 def find_mismatch(text):
     opening_brackets_stack = []
-    for i, next in enumerate(text):
+    for y, next in enumerate(text):
         if next in "([{":
         # Process opening bracket, write your code here
-            b = Bracket (next, i + 1)
-            opening_brackets_stack.append(b)
+            bra = Bracket (next, y + 1)
+            opening_brackets_stack.append(bra)
 
         if next in ")]}":
             # Process closing bracket, write your code here
             if not opening_brackets_stack:
-                return i + 1
-            pop = opening_brackets_stack.pop()
-            if not are_matching(pop.char, next):
-                return i + 1
+                return y + 1
+            xx = opening_brackets_stack.pop()
+            if not are_matching(xx.char, next):
+                return y + 1
 
     if opening_brackets_stack:
         return opening_brackets_stack[0].position
@@ -32,17 +32,17 @@ def find_mismatch(text):
 
 def main():
     # Printing answer, write your code here
-    i = input("F or I")
-    if "F" in i:
-        file = input("Enter file name: ")
-        with open(file, "r", encoding="latinl") as f:
-            text = f.read()
+    wee = input("F or I")
+    if "F" in wee:
+        file_name = input("Enter file name: ")
+        with open(file_name, "r", encoding="latinl") as file:
+            text = file.read()
         mismatch = find_mismatch(text)
         if mismatch == "Success":
             print("Success")
         else:
             print(mismatch)
-    elif "I" in i:
+    elif "I" in wee:
         text = input()
         mismatch = find_mismatch(text)
         if mismatch == "Sucess":
