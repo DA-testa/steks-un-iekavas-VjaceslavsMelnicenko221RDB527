@@ -50,5 +50,5 @@ def main():
         else:
             print(mismatch)
 
-if name == "main":
+if __name__ == "__main__":
     main()
